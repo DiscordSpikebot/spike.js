@@ -5,7 +5,12 @@
   "main": "dist/index",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "test": "jest test/test.js",
+    "clean": "rimraf dist",
+    "pre": "npm version prerelease --force && npm publish --access public --tag dev",
+    "prep": "npm run clean && npm run build",
+    "pub": "conventional-changelog -p angular -i CHANGELOG.md -s && npm publish"
   },
   "keywords": [],
   "author": "",

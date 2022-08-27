@@ -3,7 +3,7 @@ const config = require('./config.json')
 
  async function getLyrics(song, service){
   let needed = 'genius' || 'finder'
-    if(service === undefined ||service === !needed ){
+    if(service === undefined ||service !== needed ){
         service = 'genius'
     }
     if(song === undefined){
@@ -16,7 +16,7 @@ const config = require('./config.json')
   }
 
   async function getGuildData(id){
-    if(id === !Number ){
+    if(id !== Number ){
         throw new Error("The ID you have provided is NOT a number")
     }else if(id === undefined){
         throw new Error("Please provide a guild ID.")
