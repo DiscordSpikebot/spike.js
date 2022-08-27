@@ -10,7 +10,10 @@
     "clean": "rimraf dist",
     "pre": "npm version prerelease --force && npm publish --access public --tag dev",
     "prep": "npm run clean && npm run build",
-    "pub": "conventional-changelog -p angular -i CHANGELOG.md -s && npm publish"
+    "pub": "conventional-changelog -p angular -i CHANGELOG.md -s && npm publish",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "prettier": "prettier . --write"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +22,13 @@
     "node-fetch": "^2.6.7"
   },
   "devDependencies": {
-    "typescript": "^4.8.2"
+    "eslint": "^8.22.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "nano-staged": "^0.8.0",
+    "prettier": "^2.7.1"
   },
   "packageManager": "yarn@1.22.19"
 }
