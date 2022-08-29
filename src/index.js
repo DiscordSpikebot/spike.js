@@ -16,19 +16,19 @@ async function getLyrics(song, service) {
 }
 
 async function getGuildData(id) {
-  if (id !== Number) {
-    throw new Error('The ID you have provided is NOT a number')
+  if (id === Number) {
+    throw new Error('The ID you have provided is NOT put in the string form.')
   } else if (id === undefined) {
     throw new Error('Please provide a guild ID.')
   }
   let get = await fetch(`${config.baseURL}/v3/data/guilds/${id}`)
   let resp = await get.json()
   let res = JSON.parse(JSON.stringify(resp))
-  let res1 = res.role
-  let res2 = res.channel
+  let role = res.role
+  let channel = res.channel
   return {
-    res1,
-    res2
+    role,
+    channel
   }
 }
 module.exports = { getLyrics, getGuildData }
