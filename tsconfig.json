@@ -1,18 +1,18 @@
 {
-	"compileOnSave": true,
-	"compilerOptions": {
-    "target": "es2020",
-    "module": "commonjs",
-    "allowJs": true,
-    "declaration": true,
-    "outDir": "dist",
-    "strict": true,
-    "esModuleInterop": true,
-    "pretty": true,
-    "resolveJsonModule": true
-	},
-	"include": [
-		"src/v2/*",
-    "src/v3/*"
-	]
-}
+    "compilerOptions": {
+      "target": "es2020",
+      "module": "commonjs",
+      "allowJs": true,
+      "declaration": true,
+      "rootDir": "src",
+      "outDir": "dist",
+      "strict": true,
+      "esModuleInterop": true,
+      "pretty": true,
+      "resolveJsonModule": true
+    },
+    "include": [
+      "src/**/*"
+    ],
+  }
+  

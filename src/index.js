@@ -1,5 +1,5 @@
 const fetch = require('node-fetch')
-const config = require('../config.json')
+const config = require('./config.json')
 
 async function getLyrics(song, service) {
   let needed = 'genius' || 'finder'

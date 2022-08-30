@@ -1,4 +1,4 @@
-let { getLyrics, getGuildData } = require('../dist/index')
+let { getLyrics, getGuildData } = require('spike.js')
 async function find() {
   let lyrics = await getLyrics('on my way')
   console.log(lyrics)
