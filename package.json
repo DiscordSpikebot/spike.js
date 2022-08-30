@@ -1,6 +1,6 @@
 {
   "name": "spike.js",
-  "version": "1.0.2-3",
+  "version": "1.0.2-4",
   "description": "",
   "main": "dist/index",
   "types": "dist/index.d.ts",
@@ -15,15 +15,12 @@
     "lint:fix": "eslint --fix .",
     "prettier": "prettier . --write"
   },
-  "exports": {
-    "./v2": "./dist/v2",
-    "./v3": "./dist/v3"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "node-fetch": "^2.6.7"
+    "node-fetch": "^2.6.7",
+    "spike.js": "^1.0.2-3"
   },
   "devDependencies": {
     "eslint": "^8.22.0",
