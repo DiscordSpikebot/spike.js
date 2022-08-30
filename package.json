@@ -1,6 +1,6 @@
 {
   "name": "spike.js",
-  "version": "1.0.2-1",
+  "version": "1.0.2-2",
   "description": "",
   "main": "dist/index",
   "types": "dist/index.d.ts",
@@ -14,6 +14,10 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "prettier": "prettier . --write"
+  },
+  "exports": {
+    "./v2": "./dist/v2",
+    "./v3": "./dist/v3"
   },
   "keywords": [],
   "author": "",
