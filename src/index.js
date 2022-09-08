@@ -17,12 +17,12 @@ async function getLyrics(song, service) {
 
 async function getGuildData(id) {
   let conditions = '1' || '2' || '3' || '4' || '5' || '6' || '7' || '8' || '9' || '0'
-  id = String
+  let param = `${id}`
   if (id === Number) {
     throw new Error('The ID you have provided is NOT put in the string form.')
-  } else if (id === undefined) {
+  } else if (param === undefined) {
     throw new Error('Please provide a guild ID.')
-  } else if (!id.includes(conditions)) {
+  } else if (!param.includes(conditions)) {
     throw new Error('The ID you have provided is invalid')
   }
   let get = await fetch(`${config.baseURL}/v3/data/guilds/${id}`)
