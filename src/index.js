@@ -11,7 +11,7 @@ async function getLyrics(song, service) {
   }
   let get = await fetch(`${config.baseURL}/v3/lyrics/${service}/${song}`)
   let resp = await get.text()
-  let res = JSON.parse(resp).lyrics
+  let res = JSON.parse(resp)
   return res
 }
 
@@ -28,9 +28,11 @@ async function getGuildData(id) {
   let get = await fetch(`${config.baseURL}/v3/data/guilds/${id}`)
   let resp = await get.text()
   let res = JSON.parse(resp)
+  let success = res.success
   let role = res.role
   let channel = res.channel
   return {
+    success,
     role,
     channel
   }
