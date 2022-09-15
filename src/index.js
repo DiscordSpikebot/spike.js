@@ -1,4 +1,4 @@
-const fetch = require('node-fetch')
+const {fetch} = require('undici')
 const config = require('./config.json')
 
 async function getLyrics(song, service) {
