@@ -26,9 +26,13 @@ async function getGuildData(id) {
     throw new Error('The ID you have provided is invalid')
   }
   let get = await fetch(`${config.baseURL}/v3/data/guilds/${id}`)
+  let success
+  if(get.status !== 200){
+    success = false
+  }
   let resp = await get.text()
   let res = JSON.parse(resp)
-  let success = res.success
+  success = res.success
   let role = res.role
   let channel = res.channel
   return {
