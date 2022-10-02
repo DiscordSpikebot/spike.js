@@ -1131,14 +1131,6 @@ slash@^3.0.0:
   resolved "https://registry.npmjs.org/slash/-/slash-3.0.0.tgz"
   integrity sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==
 
-spike.js@^1.0.2-4, spike.js@^1.0.2-6:
-  version "1.0.2-6"
-  resolved "https://registry.npmjs.org/spike.js/-/spike.js-1.0.2-6.tgz"
-  integrity sha512-kblyk++hDMbG8euNJ3qIDG8aXFGBZU0KcQS4S4NyeUuXFBQwBzYr1WdbgYl8i+IgXkA+G6S/dBQEbOaSML+p4A==
-  dependencies:
-    node-fetch "^2.6.7"
-    spike.js "^1.0.2-4"
-
 string.prototype.trimend@^1.0.5:
   version "1.0.5"
   resolved "https://registry.npmjs.org/string.prototype.trimend/-/string.prototype.trimend-1.0.5.tgz"
