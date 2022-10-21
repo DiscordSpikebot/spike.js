@@ -19,7 +19,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "node-fetch": "^3.2.10",
     "undici": "^5.11.0"
   },
   "devDependencies": {
