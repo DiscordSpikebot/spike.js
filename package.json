@@ -19,15 +19,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "node-fetch": "^2.6.7",
-    "undici": "^5.10.0"
+    "node-fetch": "^3.2.10",
+    "undici": "^5.11.0"
   },
   "devDependencies": {
-    "eslint": "^8.22.0",
+    "eslint": "^8.25.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-promise": "^6.1.1",
     "nano-staged": "^0.8.0",
     "prettier": "^2.7.1"
   },
