@@ -1,10 +1,8 @@
-let { getLyrics, getGuildData } = require('../dist/index')
+const Client = require('../dist/index.js')
+let client = new Client();
+
 async function find() {
-  let lyrics = await getLyrics('on my way')
-  console.log(lyrics)
-  let get = await getGuildData(
-    '989559473104359504'
-    )
-  console.log(get)
+  console.log(await client.getGuildData('989559473104359504'))
+  console.log(await client.getLyrics('1 day 2 nights'))
 }
 find()
