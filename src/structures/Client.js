@@ -1,6 +1,6 @@
 const {fetch} = require('undici')
 const config = require('../config.json')
-
+const songInfoCard = require('../structures/songImg')
 class Client{
     constructor(){
 }
@@ -44,6 +44,19 @@ async getLyrics(song, service) {
       role,
       channel
     }
-  }  
+  }
+   async canvas(thumbnail, title, duration, author){
+    const songCardUtil = new songInfoCard({
+      debug: false
+    })
+    const attachment = await songCardUtil.generate({
+      thumbnail: thumbnail,
+      title: title,
+      author: author,
+      duration: duration,
+      source: 'yt'
+    })
+    return attachment  
+   }
 }
 module.exports = Client
