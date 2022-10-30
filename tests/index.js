@@ -8,7 +8,9 @@ const img = new songInfoCard({
   source: 'yt'
 })
 console.log(img)
-let client = new Client();
+let client = new Client({
+  version: 'v3'
+});
 
 async function find() {
   console.log(await client.getGuildData('989559473104359504'))

@@ -2,9 +2,16 @@ const {fetch} = require('undici')
 const config = require('../config.json')
 const songInfoCard = require('../structures/songImg')
 class Client{
-    constructor(){
-}
-super()
+  constructor(options = {version}) {
+    let version = options.version;
+    if(!version){
+      throw new Error('Specify and API version.')
+    }else if(!version === 'v2' || !version === 'v3'){
+      throw new Error('Specify a valid API version.')
+    }
+    this.version = version
+  }
+super(options)
 async getLyrics(song, service) {
     let needed = 'genius' || 'finder'
     if (service === undefined || service !== needed) {
@@ -13,7 +20,7 @@ async getLyrics(song, service) {
     if (song === undefined) {
       throw new Error('Please provide a song.')
     }
-    let get = await fetch(`${config.baseURL}/v3/lyrics/${service}/${song}`)
+    let get = await fetch(`${config.baseURL}/${this.version}/lyrics/${service}/${song}`)
     let resp = await get.text()
     let res = JSON.parse(resp)
     return res
@@ -29,7 +36,18 @@ async getLyrics(song, service) {
     } else if (!param.includes(conditions)) {
       throw new Error('The ID you have provided is invalid')
     }
-    let get = await fetch(`${config.baseURL}/v3/data/guilds/${id}`)
+    let url;
+    if(this.version === 'v2'){
+      url = `${config.baseURL}/v2/data`
+      let get = await fetch(`${url}/${id}`)
+      let resp = await get.text()
+      let parse = JSON.parse(resp)
+      let role = parse.role
+      return role;
+    }else if(this.version === 'v3'){
+      url = `${config.baseURL}/v3/data/guilds`
+    }
+    let get = await fetch(`${url}/${id}`)
     let success
     if(get.status !== 200){
       success = false
