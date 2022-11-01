@@ -16,4 +16,4 @@ jobs:
         run: |
           curl -Os https://uploader.codecov.io/latest/linux/codecov
           chmod +x codecov
-          ./codecov -t "2b419733-b6f4-42c6-91e8-d814db800f91"
+          ./codecov -t "2b419733-b6f4-42c6-91e8-d814db800f91 -f"
