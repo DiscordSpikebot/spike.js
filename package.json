@@ -13,8 +13,7 @@
     "pub": "npm publish",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix ",
-    "prettier": "prettier . --write",
-    "prepare": "husky install"
+    "prettier": "prettier . --write"
   },
   "keywords": [],
   "author": "",
