@@ -1,6 +1,5 @@
 const { Canvas, Image } = require('canvas')
 const { request } = require('undici')
-
 class songInfoCard {
   constructor({ debug } = {}) {
     this.allSources = [
@@ -94,7 +93,6 @@ class songInfoCard {
     if (this.debug) console.log('initalizing currentSongInfoCard')
     if (this.debug) console.log('currentSongInfoCard initated')
   }
-
   /**
    * Generate a Card
    * @param { {thumbnail:string, title:string, duration:string, author:string, source:string} } inputData
@@ -102,28 +100,26 @@ class songInfoCard {
    */
   async generate(inputData = {}) {
     try {
-      const { thumbnail, title, duration, author, source } = inputData
+      const { thumbnail, title, duration, author } = inputData
       const canvas = new Canvas(1000, 250),
-        { width, height } = canvas,
         ctx = canvas.getContext('2d')
-
       ctx.fillStyle = '#4E84F1'
       await this.roundRect(ctx, 0, 0, canvas.width, canvas.height, 25, true, false)
-
       if (thumbnail) {
         const dWidth = 355.5555555555556
         const dHeight = 200
-        await this.roundRect(ctx, 25, 25, dWidth - 50, dHeight, 15, false, true, async c => {
+        await this.roundRect(ctx, 25, 25, dWidth - 50, dHeight, 15, false, true, async () => {
           try {
             let img = new Image()
             const { body } = await request(thumbnail)
-            img.src = Buffer.from(await body.arrayBuffer())
+            img.src = Buffer.from(await body.arrayBuffer()) // eslint-disable-line
             ctx.drawImage(img, 25, 25, dWidth - 50, dHeight)
-          } catch {}
+          } catch (e) {
+            throw new Error(e)
+          }
           return
         })
       }
-
       if (title) {
         ctx.fillStyle = '#FFFFFF'
         ctx.font = '40px bold'
@@ -147,7 +143,6 @@ class songInfoCard {
       console.log(e)
     }
   }
-
   /**
    * Create a rounded Rectangle
    * @param {*} ctx
@@ -186,5 +181,4 @@ class songInfoCard {
     return true
   }
 }
-
 module.exports = songInfoCard

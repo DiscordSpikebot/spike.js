@@ -12,7 +12,7 @@
     "prep": "npm run clean && npm run build",
     "pub": "npm publish",
     "lint": "eslint .",
-    "lint:fix": "eslint --fix .",
+    "lint:fix": "eslint . --fix ",
     "prettier": "prettier . --write"
   },
   "keywords": [],

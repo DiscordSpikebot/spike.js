@@ -1,5 +1,5 @@
-const {Client} = require('../dist/index.js')
-const {songInfoCard} = require('../dist/index.js')
+const { Client } = require('../dist/index.js')
+const { songInfoCard } = require('../dist/index.js')
 const img = new songInfoCard({
   thumbnail: 'https://cdn.discordapp.com/attachments/913885039480152144/1008433692529672232/Logo_2.png',
   title: 'e',
@@ -10,7 +10,7 @@ const img = new songInfoCard({
 console.log(img)
 let client = new Client({
   version: 'v3'
-});
+})
 
 async function find() {
   console.log(await client.getGuildData('989559473104359504'))
