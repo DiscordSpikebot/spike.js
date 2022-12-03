@@ -9,9 +9,9 @@ class songInfoCardBuilder{
         this.duration = '1:00'
     }
     setTitle(title){
-        this.tile = title
-        return this;
-    }
+      this.title = title
+      return this;
+  }
     setThumbnail(image){
         this.thumbnail = image
         return this;
