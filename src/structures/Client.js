@@ -3,7 +3,7 @@
 
 const { fetch } = require('undici')
 const config = require('../config.json')
-const songInfoCard = require('../structures/songImg')
+const songInfoCard = require('../structures/songImg/normal')
 class Client {
   constructor(options = { version }) {
     // eslint-disable-line
