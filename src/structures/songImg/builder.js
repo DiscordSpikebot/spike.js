@@ -70,9 +70,10 @@ class songInfoCardBuilder{
               await this.roundRect(ctx, 400, 195 - 35, measurements.width + 30, 30, 10, true, false)
               ctx.fillStyle = '#2C2C2C'
               if(arrived === null){
-                arrived = ''
+                ctx.fillText(`${duration}`, 400 + 15, 195 + 22.5 - 35)
+              }else{
+                ctx.fillText(`${arrived}`, 400 + 15, 195 + 22.5 - 35)
               }
-              ctx.fillText(`${arrived}/${duration}`, 400 + 15, 195 + 22.5 - 35)
             }else if(duration === null){
                 duration = ''
             }
