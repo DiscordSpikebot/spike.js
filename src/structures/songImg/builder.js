@@ -65,15 +65,17 @@ class songInfoCardBuilder{
             }
             if (duration) {
               ctx.font = '25px bold'
-              const measurements = ctx.measureText(duration)
+              let ned;
+              if(arrived === null){
+                ned = duration
+              }else{
+                ned = arrived
+              }
+              const measurements = ctx.measureText(ned)
               ctx.fillStyle = '#8FB4FF'
               await this.roundRect(ctx, 400, 195 - 35, measurements.width + 30, 30, 10, true, false)
               ctx.fillStyle = '#2C2C2C'
-              if(arrived === null){
-                ctx.fillText(`${duration}`, 400 + 15, 195 + 22.5 - 35)
-              }else{
-                ctx.fillText(`${arrived}`, 400 + 15, 195 + 22.5 - 35)
-              }
+              ctx.fillText(`${ned}`, 400 + 15, 195 + 22.5 - 35)
             }else if(duration === null){
                 duration = ''
             }
