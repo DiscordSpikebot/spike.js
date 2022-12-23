@@ -7,6 +7,7 @@ class songInfoCardBuilder{
         this.thumbnail = null
         this.author = 'Song Author'
         this.duration = '1:00'
+        this.arrived = null
     }
     setTitle(title){
       this.title = title
@@ -24,9 +25,13 @@ class songInfoCardBuilder{
         this.duration = duration
         return this;
     }
+    setArrived(time){
+      this.arrived = time
+      return this;
+    }
     async toAttach(){
         try {
-            let { thumbnail, title, duration, author } = this
+            let { thumbnail, title, duration, author, arrived } = this
             const canvas = new Canvas(1000, 250),
               ctx = canvas.getContext('2d')
             ctx.fillStyle = '#4E84F1'
@@ -64,7 +69,10 @@ class songInfoCardBuilder{
               ctx.fillStyle = '#8FB4FF'
               await this.roundRect(ctx, 400, 195 - 35, measurements.width + 30, 30, 10, true, false)
               ctx.fillStyle = '#2C2C2C'
-              ctx.fillText(duration, 400 + 15, 195 + 22.5 - 35)
+              if(arrived === null){
+                arrived = ''
+              }
+              ctx.fillText(`${arrived}/${duration}`, 400 + 15, 195 + 22.5 - 35)
             }else if(duration === null){
                 duration = ''
             }
