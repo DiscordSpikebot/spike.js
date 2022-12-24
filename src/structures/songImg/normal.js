@@ -1,5 +1,21 @@
 const { Canvas, Image } = require('canvas')
 const { request } = require('undici')
+const applyText = (canvas, text) => {
+	const context = canvas.getContext('2d');
+
+	// Declare a base size of the font
+	let fontSize = 40;
+
+	do {
+		// Assign the font to the context and decrement it so it can be measured again
+		context.font = `${fontSize -= 10}px bold`;
+		// Compare pixel width of the text to the canvas minus the approximate avatar size
+	} while (context.measureText(text).width > canvas.width - 300);
+
+	// Return the result to use in the actual canvas
+	return context.font;
+};
+
 class songInfoCard {
   constructor({ debug } = {}) {
     this.allSources = [
@@ -122,7 +138,7 @@ class songInfoCard {
       }
       if (title) {
         ctx.fillStyle = '#FFFFFF'
-        ctx.font = '40px bold'
+        ctx.font = applyText(canvas, title)
         ctx.fillText(title, 400, 25 + 30 + 35, canvas.width - 25)
       }
       if (author) {
