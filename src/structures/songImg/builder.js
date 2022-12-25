@@ -1,6 +1,5 @@
 const { Canvas, Image } = require('canvas')
 const { request } = require('undici')
-const { Colors } = require('../../index')
 const applyText = (canvas, text) => {
 	const context = canvas.getContext('2d');
 
@@ -24,7 +23,6 @@ class songInfoCardBuilder{
         this.author = 'Song Author'
         this.duration = '1:00'
         this.arrived = null
-        this.color = Colors.Blue
     }
     setTitle(title){
       this.title = title
@@ -46,26 +44,13 @@ class songInfoCardBuilder{
       this.arrived = time
       return this;
     }
-    setColor(color){
-      if(color !== (Colors.Red || Colors.Blue || Colors.Green)){
-        return new Error('Please specify an available color')
-      }else{
-        this.color = color
-        return this;
-      }
-    }
     async toAttach(){
         try {
-            let { thumbnail, title, duration, author, arrived, color } = this
+            let { thumbnail, title, duration, author, arrived } = this
             const canvas = new Canvas(1000, 250),
             ctx = canvas.getContext('2d')
-              if(color === Colors.Red){
-                ctx.fillStyle('#FF0000')
-              }else if(color === Colors.Blue){
-            ctx.fillStyle = '#4E84F1'
-          }else if(color === Colors.Green){
-            ctx.fillStyle('#008000')
-          }
+            let col = '#4E84F1'
+            ctx.fillStyle = col
             await this.roundRect(ctx, 0, 0, canvas.width, canvas.height, 25, true, false)
             if (thumbnail) {
               const dWidth = 355.5555555555556
