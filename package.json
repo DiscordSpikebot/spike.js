@@ -1,6 +1,6 @@
 {
   "name": "spike.js",
-  "version": "1.0.4-0",
+  "version": "1.0.5-10",
   "description": "",
   "main": "dist/index",
   "types": "dist/index.d.ts",
@@ -10,15 +10,16 @@
     "clean": "rimraf dist",
     "pre": "npm version prerelease --force && npm publish --access public --tag dev",
     "prep": "npm run clean && npm run build",
-    "pub": "conventional-changelog -p angular -i CHANGELOG.md -s && npm publish",
+    "pub": "npm publish",
     "lint": "eslint .",
-    "lint:fix": "eslint --fix .",
+    "lint:fix": "eslint . --fix ",
     "prettier": "prettier . --write"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "canvas": "^2.10.1",
     "undici": "^5.11.0"
   },
   "devDependencies": {
@@ -27,6 +28,7 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.1.1",
+    "generate-changelog": "^1.8.0",
     "nano-staged": "^0.8.0",
     "prettier": "^2.7.1"
   },
