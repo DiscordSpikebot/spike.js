@@ -1,6 +1,6 @@
 {
   "name": "spike.js",
-  "version": "1.0.5-17",
+  "version": "1.0.5-18",
   "description": "",
   "main": "dist/index",
   "types": "dist/index.d.ts",
@@ -9,7 +9,7 @@
     "test": "jest test/test.js",
     "clean": "rimraf dist",
     "pre": "npm version prerelease --force && npm publish --access public --tag dev",
-    "prep": "npm run clean && npm run build",
+    "prep": "npm run prettier && npm run clean && npm run build",
     "pub": "npm publish",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix ",
