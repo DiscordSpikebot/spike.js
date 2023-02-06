@@ -13,10 +13,8 @@ async function find() {
     duration: 'e',
     source: 'yt'
   })
-  const builder = new songInfoCardBuilder()
-  .setTitle('Spike')
-  .toAttach();
-  console.log(await (builder))
+  const builder = new songInfoCardBuilder().setTitle('Spike').toAttach()
+  console.log(await builder)
   console.log(img)
   console.log(await client.getGuildData('989559473104359504'))
   console.log(await client.getLyrics('1 day 2 nights'))

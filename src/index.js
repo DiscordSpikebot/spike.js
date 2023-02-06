@@ -6,5 +6,5 @@ module.exports = {
   Client,
   songInfoCard,
   //builders
-  songInfoCardBuilder,
+  songInfoCardBuilder
 }
