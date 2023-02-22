@@ -59,7 +59,7 @@ class songInfoCardBuilder {
           try {
             let img = new Image()
             const { body } = await request(thumbnail)
-            img.src = Buffer.from(await body.arrayBuffer()) // eslint-disable-line
+            img.src = await Buffer.from(await body.arrayBuffer()) // eslint-disable-line
             ctx.drawImage(img, 25, 25, dWidth - 50, dHeight)
           } catch (e) {
             throw new TypeError(e)
