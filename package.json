@@ -1,6 +1,6 @@
 {
   "name": "spike.js",
-  "version": "1.0.5-19",
+  "version": "1.0.5-20",
   "description": "",
   "main": "dist/index",
   "types": "dist/index.d.ts",
@@ -20,7 +20,8 @@
   "license": "ISC",
   "dependencies": {
     "canvas": "^2.10.1",
-    "undici": "^5.11.0"
+    "undici": "^5.11.0",
+    "wait": "^0.4.2"
   },
   "devDependencies": {
     "eslint": "^8.25.0",
