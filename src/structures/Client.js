@@ -3,15 +3,14 @@
 
 const { fetch } = require('undici')
 const config = require('../config.json')
-const songInfoCard = require('../structures/songImg/normal')
 class Client {
   constructor(options = { version }) {
     // eslint-disable-line
     let version = options.version
     if (!version) {
-      throw new Error('Specify and API version.')
+      throw new TypeError('Specify and API version.')
     } else if (!version === 'v2' || !version === 'v3') {
-      throw new Error('Specify a valid API version.')
+      throw new TypeError('Specify a valid API version.')
     }
     this.version = version
   }
@@ -21,22 +20,27 @@ class Client {
       service = 'genius'
     }
     if (song === undefined) {
-      throw new Error('Please provide a song.')
+      throw new TypeError('Please provide a song.')
     }
     let get = await fetch(`${config.baseURL}/${this.version}/lyrics/${service}/${song}`)
     let resp = await get.text()
     let res = JSON.parse(resp)
-    return res
+    let success = res.success
+    let lyrics = res.lyrics
+    return {
+      success,
+      lyrics
+    }
   }
   async getGuildData(id) {
     let conditions = '1' || '2' || '3' || '4' || '5' || '6' || '7' || '8' || '9' || '0'
     let param = `${id}`
     if (id === Number) {
-      throw new Error('The ID you have provided is NOT put in the string form.')
+      throw new TypeError('The ID you have provided is NOT put in the string form.')
     } else if (param === undefined) {
-      throw new Error('Please provide a guild ID.')
+      throw new TypeError('Please provide a guild ID.')
     } else if (!param.includes(conditions)) {
-      throw new Error('The ID you have provided is invalid')
+      throw new TypeError('The ID you have provided is invalid')
     }
     let url
     if (this.version === 'v2') {
@@ -64,19 +68,6 @@ class Client {
       role,
       channel
     }
-  }
-  async canvas(thumbnail, title, duration, author) {
-    const songCardUtil = new songInfoCard({
-      debug: false
-    })
-    const attachment = await songCardUtil.generate({
-      thumbnail: thumbnail,
-      title: title,
-      author: author,
-      duration: duration,
-      source: 'yt'
-    })
-    return attachment
   }
 }
 module.exports = Client
