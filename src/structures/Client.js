@@ -35,7 +35,7 @@ class Client {
   async getGuildData(id) {
     let conditions = '1' || '2' || '3' || '4' || '5' || '6' || '7' || '8' || '9' || '0'
     let param = `${id}`
-    if (id === Number) {
+    if (typeof id !== 'string') {
       throw new TypeError('The ID you have provided is NOT put in the string form.')
     } else if (param === undefined) {
       throw new TypeError('Please provide a guild ID.')
@@ -49,7 +49,9 @@ class Client {
       let resp = await get.text()
       let parse = JSON.parse(resp)
       let role = parse.role
-      return role
+      return {
+        role: role
+      }
     } else if (this.version === 'v3') {
       url = `${config.baseURL}/v3/data/guilds`
     }
@@ -64,9 +66,9 @@ class Client {
     let role = res.role
     let channel = res.channel
     return {
-      success,
-      role,
-      channel
+      success: success,
+      role: role,
+      channel: channel
     }
   }
 }
